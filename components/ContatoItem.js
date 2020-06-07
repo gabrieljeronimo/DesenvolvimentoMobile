@@ -1,16 +1,16 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-import cores from '../cores/cores'
+import cores from '../constantes/Cores'
 import medidas from '../medidas/medidas';
 
 const ContatoItem = (props) =>{
     return (
-        <TouchableOpacity onLongPress={props.onDelete.bind(this, props.chave)}>
+        <TouchableOpacity onPress={props.onPress.bind(this, props.contato)} onLongPress={props.onDelete.bind(this, props.contato.key)}>
             <View style={styles.itemNaLista}>
-                <Text>#{props.chave}</Text>
-                <Text>Nome: {props.nome}</Text>
-                <Text>Celular: {props.celular}</Text>
+                <Text>#{props.contato.key}</Text>
+                <Text>Nome: {props.contato.nome}</Text>
+                <Text>Celular: {props.contato.celular}</Text>
             </View>
         </TouchableOpacity>
     );

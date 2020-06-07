@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {View, TextInput, Button, StyleSheet} from 'react-native'
 
-import cores from '../cores/cores'
+import cores from '../constantes/Cores'
 import medidas from '../medidas/medidas';
 
 const ContatoInput = (props) => {
@@ -34,12 +34,14 @@ const ContatoInput = (props) => {
                     value={celular}
                 />
                 <Button
-                    title="+"
+                    title={props.isEditando ? "salvar" : '+'}
                     onPress={() => {
                         props.onAdicionarContato(nome, celular)
 
-                        setNome('');
-                        setCelular('');
+                        if (!props.isEditando) {
+                            setNome('');
+                            setCelular('');
+                        }
                     }}
                 />
             </View>
